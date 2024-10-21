@@ -8,6 +8,15 @@ import ProductItem from '../../components/ProductItem/ProductItem'
 export default function ProductList() {
 
   const navigate = useNavigate()
+  let productsSelected = []
+
+  const checkboxChange = (e, sdk) => {
+    if(e.target.checked){
+      productsSelected = [...productsSelected, sdk]
+    }else{
+      productsSelected = productsSelected.filter(el => el != sdk)
+    }
+  }
 
   return (
     <div className='productListPage page'>
@@ -22,11 +31,13 @@ export default function ProductList() {
           id: "#delete-product-btn"
         },
       ]} />
-      <section className='items main'>
-        {[1,1,1,1,1,1,1,1,1,1,1,1,1,1].map(el => {
-          return <ProductItem name={"JVC200123"} type={"Book"} price={1.00} size={700} />
-        })}
-      </section>
+      <main className='main'>
+        <section className='items'>
+          {[1,1,1,1,1,1,1,1,1,1,1,1,1,1].map((el, i) => {
+            return <ProductItem key={i} onCheckboxChange={checkboxChange} sdk={i} name={"JVC200123"} type={"Book"} price={1.00} size={700} />
+          })}
+        </section>
+      </main>
       <Footer />
     </div>
   )

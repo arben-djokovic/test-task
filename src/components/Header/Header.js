@@ -6,8 +6,8 @@ export default function Header({buttons, title}) {
     <header className='header'>
         <h1>{title}</h1>
         <section className='buttons'>
-            {buttons.map(button => {
-                return(<button id={button.id} onClick={button.onClick}>{button.text}</button>)
+            {buttons.map((button, i) => {
+                return(<button key={i} id={button.id} onClick={button.onClick}>{button.text}</button>)
             })}
         </section>
     </header>

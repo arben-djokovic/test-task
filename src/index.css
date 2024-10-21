@@ -16,9 +16,11 @@ a, button, .link{
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  min-height: 100vh;
 }
 .main{
   padding: 20px 0;
+  flex-grow: 1;
 }
 
 @media screen and (max-width: 600px) {
