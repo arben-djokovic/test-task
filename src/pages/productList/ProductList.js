@@ -3,6 +3,7 @@ import "./ProductList.scss"
 import Header from '../../components/Header/Header'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../../components/Footer/Footer'
+import ProductItem from '../../components/ProductItem/ProductItem'
 
 export default function ProductList() {
 
@@ -21,7 +22,10 @@ export default function ProductList() {
           id: "#delete-product-btn"
         },
       ]} />
-      <section className='productListMain main'>
+      <section className='items main'>
+        {[1,1,1,1,1,1,1,1,1,1,1,1,1,1].map(el => {
+          return <ProductItem name={"JVC200123"} type={"Book"} price={1.00} size={700} />
+        })}
       </section>
       <Footer />
     </div>

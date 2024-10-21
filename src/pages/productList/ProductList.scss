@@ -1,4 +1,8 @@
 .productListPage{
-    .productListMain{
+    .items{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        grid-gap: 2vw;
     }
 }
