@@ -4,7 +4,7 @@ import './ProductItem.scss'
 export default function ProductItem({product, onCheckboxChange}) {
   return (
     <section className='productItem'>
-        <input onChange={(e)=>{onCheckboxChange(e, product.sku)}} defaultChecked={false} type="checkbox" name="delete-checkbox" id="delete-checkbox" />
+        <input onChange={(e)=>{onCheckboxChange(e, product.sku)}} defaultChecked={false} type="checkbox" name="delete-checkbox" className="delete-checkbox" id="delete-checkbox" />
         <div className="productInfo">
             <span>{product.name}</span>
             <span>{product.type}</span>
