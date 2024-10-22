@@ -23,7 +23,7 @@ export default function ProductList() {
       <Header title="Product List" buttons={[
         {
           text: "ADD",
-          onClick: () => {navigate("/addproduct")}
+          onClick: () => {navigate("/add-product")}
         },
         {
           text: "MASS DELETE",

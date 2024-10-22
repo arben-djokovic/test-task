@@ -1,2 +1,20 @@
 .addProductPage{
+    .addProductMain{
+        #product_form, #Book, #DVD, #Furniture{
+            display: flex;
+            flex-direction: column;
+            grid-gap: 30px;
+            font-weight: bold;
+            font-size: 22px;
+            .input{
+                display: flex;
+                align-items: center;
+                grid-gap: 2vw;
+                input, select{
+                    font-size: 22px;
+                    padding: 10px;
+                }
+            }
+        }
+    }
 }
