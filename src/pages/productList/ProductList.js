@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./ProductList.scss"
 import Header from '../../components/Header/Header'
 import { useNavigate } from 'react-router-dom'
@@ -9,6 +9,7 @@ export default function ProductList() {
 
   const navigate = useNavigate()
   let productsSelected = []
+  let [products, setProducts] = useState([])
 
   const checkboxChange = (e, sdk) => {
     if(e.target.checked){
@@ -17,6 +18,36 @@ export default function ProductList() {
       productsSelected = productsSelected.filter(el => el != sdk)
     }
   }
+
+  const fetchProducts = async() => {
+    try{
+      const response = await fetch("http://localhost/task-test-php-arben-djokovic/api/index.php")
+      if (!response.ok) throw new Error(`Response status: ${response.status}`);
+      const res1 = await response.json()
+      setProducts(res1)
+    }catch(err){
+      console.log(err)
+    }
+  }
+  
+  const deleteSelectedProducts = async() => {
+    if(products.length == 0) return 
+    try{
+      const response = await fetch("http://localhost/task-test-php-arben-djokovic/api/index.php", {
+        method: "DELETE",
+        body: JSON.stringify({skus: productsSelected}),
+      })
+      if(!response.ok) throw new Error('Network response was not ok' + response.statusText);
+      setProducts([])
+      fetchProducts()
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+  useEffect(()=>{
+    fetchProducts()
+  },[])
 
   return (
     <div className='productListPage page'>
@@ -27,15 +58,15 @@ export default function ProductList() {
         },
         {
           text: "MASS DELETE",
-          onClick: () => {},
+          onClick: deleteSelectedProducts,
           id: "#delete-product-btn"
         },
       ]} />
       <main className='main'>
         <section className='items'>
-          {[1,1,1,1,1,1,1,1,1,1,1,1,1,1].map((el, i) => {
-            return <ProductItem key={i} onCheckboxChange={checkboxChange} sdk={i} name={"JVC200123"} type={"Book"} price={1.00} size={700} />
-          })}
+          {products.length ? products.map((product, i) => {
+            return <ProductItem key={i} onCheckboxChange={checkboxChange} product={product} />
+          }) : "0 products found"}
         </section>
       </main>
       <Footer />

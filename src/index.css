@@ -22,10 +22,12 @@ a, button, .link{
   padding: 20px 0;
   flex-grow: 1;
 }
-
+.error{
+  color: red;
+  font-size: 18px;
+}
 @media screen and (max-width: 600px) {
   body {
     font-size: 15px;
   }
-  
 }

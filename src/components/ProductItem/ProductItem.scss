@@ -1,8 +1,17 @@
 .productItem{
     border: 3px solid black;
-    padding: 40px;
+    padding: 30px;
     position: relative;
     height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+    height: 5vw;
+    min-height: 100px;
+    min-width: 120px;
+    max-width: 180px;
+    max-height: 150px;
     #delete-checkbox{
         position: absolute;
         top: 10px;
@@ -14,5 +23,11 @@
         display: flex;
         flex-direction: column;
         text-align: center;
+        justify-content: center;
+        align-items: center;
+        max-width: 100%;
+        overflow-x: auto;
+        text-overflow: ellipsis;
+        white-space: nowrap
     }
 }
