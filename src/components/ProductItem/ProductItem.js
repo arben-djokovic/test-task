@@ -9,7 +9,7 @@ export default function ProductItem({product, onCheckboxChange}) {
             <span>{product.name}</span>
             <span>{product.type}</span>
             <span>{product.price} $</span>
-            {product.type == "Book" ? <span>book</span> : product.type == "Furniture" ? <span>Furniture</span> : product.type == "DVD-disc" ? <span>-disc</span> : "undefined"}
+            {product.type == "Book" ? <span>Weight: {product.weight}KG</span> : product.type == "Furniture" ? <span>Dimension: {`${product.height}x${product.width}x${product.length}`}</span> : product.type == "DVD" ? <span>Size: {product.size} MB</span> : "undefined"}
         </div>
     </section>
   )

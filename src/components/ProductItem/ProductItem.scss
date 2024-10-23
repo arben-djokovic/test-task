@@ -29,5 +29,8 @@
         overflow-x: auto;
         text-overflow: ellipsis;
         white-space: nowrap
+        span{
+            max-width: 100%;
+        }
     }
 }
