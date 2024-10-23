@@ -79,7 +79,7 @@ export default function AddProduct() {
         return;
       }
       try {
-        const response = await fetch("http://localhost/task-test-php-arben-djokovic/api/index.php", {
+        const response = await fetch("http://php-arben-djokovic.atwebpages.com/", {
           method: "POST",
           body: JSON.stringify(productData),
         })

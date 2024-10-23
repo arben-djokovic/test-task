@@ -21,7 +21,7 @@ export default function ProductList() {
 
   const fetchProducts = async() => {
     try{
-      const response = await fetch("http://localhost/task-test-php-arben-djokovic/api/index.php")
+      const response = await fetch("http://php-arben-djokovic.atwebpages.com/")
       if (!response.ok) throw new Error(`Response status: ${response.status}`);
       const res1 = await response.json()
       setProducts(res1)
@@ -33,7 +33,7 @@ export default function ProductList() {
   const deleteSelectedProducts = async() => {
     if(products.length == 0) return 
     try{
-      const response = await fetch("http://localhost/task-test-php-arben-djokovic/api/index.php", {
+      const response = await fetch("http://php-arben-djokovic.atwebpages.com/", {
         method: "DELETE",
         body: JSON.stringify({skus: productsSelected}),
       })
