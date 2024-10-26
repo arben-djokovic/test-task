@@ -134,8 +134,8 @@ export default function AddProduct() {
             <span>Type Switcher</span>
             <select name="type" id="productType" onChange={(e) => { setTypeSelected(e.target.value) }} value={typeSelected} >
               <option id='DVD' value="DVD">DVD</option>
-              <option id='Furniture' value="Furniture">FURNITURE</option>
-              <option id='Book' value="Book">BOOK</option>
+              <option id='Furniture' value="Furniture">Furniture</option>
+              <option id='Book' value="Book">Book</option>
             </select>
             {errors.type && <span className="error">{errors.type}</span>}
           </div>
