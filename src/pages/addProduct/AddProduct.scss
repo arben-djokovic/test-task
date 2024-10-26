@@ -7,7 +7,7 @@
             font-weight: bold;
             font-size: 22px;
             .input{
-                display: grid;
+                display: flex;
                 align-items: center;
                 grid-gap: 2vw;
                 input, select{
@@ -18,3 +18,15 @@
         }
     }
 }
+
+@media screen and (max-width: 600px) {
+    .addProductPage{
+        .addProductMain{
+            #product_form, #Book, #DVD, #Furniture{
+                .input{
+                    display: grid;
+                }
+            }
+        }
+    }
+  }
