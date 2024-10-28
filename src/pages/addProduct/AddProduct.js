@@ -92,6 +92,9 @@ export default function AddProduct() {
         if (data.status === 'success') {
           navigate("/")
         } else if (data.errors) {
+          if(Object.keys(data.errors).length == 1 && data.errors.sku == "SKU must be unique."){
+            navigate("/")
+          }
           setErrors(data.errors);
         }
 
@@ -103,7 +106,7 @@ export default function AddProduct() {
 
   return (
     <div className='addProductPage page'>
-      <Header title="Product Add" buttons={[
+      <Header title="Add Product" buttons={[
         {
           text: "Save",
           onClick: saveBtn
@@ -112,7 +115,7 @@ export default function AddProduct() {
           onClick: () => { navigate("/") }
         },
 
-      ]} />
+      ]} ></Header>
       <main className='addProductMain main'>
         <form id='product_form' ref={formRef} onSubmit={(e) => { e.preventDefault() }}>
           <div className="input">
